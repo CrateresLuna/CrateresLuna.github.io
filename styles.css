@@ -119,13 +119,13 @@ input {
 }
 
 #install-button {
-    color: white;
+    /*color: white;
     border: none;
     border-radius: 2px;
     background-color: rgba(250, 250, 250, 0);
     padding: 10px 20px;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: underline; */
 }
 
 
