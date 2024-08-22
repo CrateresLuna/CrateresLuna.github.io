@@ -45,22 +45,29 @@
     </main>
 
     <script>
-        if("serviceWorker" in navigator){
-            navigator.serviceWorker.register("/service-worker.js");s
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js")
+                .then(() => console.log("Service Worker registrado con éxito"))
+                .catch(error => console.log("Error al registrar el Service Worker: ", error));
         }
-        if ('serviceWorker' in navigator && 'PushManager' in window) {
+
+        if ('beforeinstallprompt' in window) {
             window.addEventListener('beforeinstallprompt', event => {
-                // Prevent the browser's default install prompt
                 event.preventDefault();
                 
-                // Show your custom install button or message
                 const installButton = document.getElementById('install-button');
                 installButton.style.display = 'block';
 
-                // Handle the click event on your install button
                 installButton.addEventListener('click', () => {
-                // Trigger the browser's install prompt
-                event.prompt();
+                    event.prompt();
+                    event.userChoice.then(choiceResult => {
+                        if (choiceResult.outcome === 'accepted') {
+                            console.log('Usuario aceptó la instalación');
+                        } else {
+                            console.log('Usuario rechazó la instalación');
+                        }
+                        installButton.style.display = 'none';
+                    });
                 });
             });
         }
