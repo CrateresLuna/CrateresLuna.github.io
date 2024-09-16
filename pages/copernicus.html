@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crateres</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="main.js"></script>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <section id="zonethree">
+        <p> CRATER COPERNICUS</p>
+    </section>
+</body>
+<main>
+    <section id="zonetwo">
+        <img src="../figs/crater_coper.png">
+        <p>El cráter Copérnico recibe su nombre en honor al astrónomo polaco Nicolás Copérnico. Este cráter cuenta con un diámetro de 93 km y una profundidad superior a los 3800 m que se encuentra ubicado al noroeste entre los Mare Imbrium e Insularum y el Sinus Aestuum. En el centro del cráter se pueden observar 3 picos con una altura de alrededor de 1200 m, y en sus bordes grandes terrazas. El cráter Copérnico es relativamente joven, 1100 millones de años, lo cual se evidencia gracias a los rayos, de una longitud de aproximadamente 500 km, que parecieran salir del cráter debido a que estos representan material expulsado en el momento que el meteorito choco con la superficie lunar, ya que este material se encuentra sobre cráteres más antiguos.</p>
+    </section>
+    </main>
+<div id="footer"></div>
+</html>
