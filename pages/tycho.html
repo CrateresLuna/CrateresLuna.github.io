@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crateres</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="main.js"></script>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+        });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+</body>
+<main>
+    <p>El cráter Tycho es uno de los cráteres más notables en la superficie lunar y recibe su nombre en honor al astrónomo danés Tycho Brahe. Se sugiere que el cráter se formó hace 100 millones de años, considerándose así un cráter joven, y se encuentra ubicado al sur del Mare Nubium o Mar de las nubes, la cual es una de las cuencas de impacto más antiguas de la luna. Tycho tiene un diámetro de 85 km y una profundidad de 4 km, además se caracteriza presentar un pequeño pico en medio del cráter con una altura de 1500 m y una serie de líneas radiales alrededor del cráter. Estas líneas se encuentran constituidas por material expulsado durante el impacto del meteorito que formo Tycho, dicho material es vidrio fundido a causa del impacto y se extienden alrededor de 2600 km a través de la superficie lunar. La importancia de este cráter radica en que al ser un cráter tan buen preservado es un buen ejemplo para estudiar el proceso de la formación de cráteres de impacto.</p>
+</main>
+<div id="footer"></div>
+</html>

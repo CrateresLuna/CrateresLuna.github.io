@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Sobre el Proyecto</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="../main.js"></script>
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="stylesheet" href="../styles.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+        });
+    </script>
+<body>
+    <div id="header"></div>
+
+    <main>
+        <section id="zonetwo">
+            <p>Objetivos del proyecto</p>
+            <p>Objetivo General</p>
+            <div>
+                <ul>
+                    <li>Crear una red neuronal para la identificación de los cráteres Tycho, Copernico, Plato, Arquimedes, Timocharis y Eratostenes</li>
+                </ul>
+            </div>
+            <p>Objetivos especificos</p>
+            <div>
+                <ul>
+                    <li>Identificar y recortar cada uno de los cráteres.</li>
+                    <li>Crear una pagina web accesible</li>
+                    <li>Brindar información de cada uno de los cráteres a clasificar.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="zonethree">
+            <p>Equipo utilizado</p>
+            <div>
+                <ul>
+                    <li>Telescopio Celestron NexStar 8SE del grupo Halley UIS</li>
+                    <li>Camara Nikon D3000</li>
+                </ul>
+        </section>
+
+        <section id="zonetwo">
+            <p>Red neuronal </p>
+        </section>
+
+        <section id="zonethree">
+            <p>Jornadas de observación</p>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        if("serviceWorker" in navigator){
+            navigator.serviceWorker.register("/service-worker.js");
+        }
+        if ('serviceWorker' in navigator && 'PushManager' in window) {
+            window.addEventListener('beforeinstallprompt', event => {
+                // Prevent the browser's default install prompt
+                event.preventDefault();
+                
+                // Show your custom install button or message
+                const installButton = document.getElementById('install-button');
+                installButton.style.display = 'block';
+
+                // Handle the click event on your install button
+                installButton.addEventListener('click', () => {
+                // Trigger the browser's install prompt
+                event.prompt();
+                });
+            });
+        }
+
+        document.querySelectorAll('.download_crater').forEach(button => {
+            button.addEventListener('click', function() {
+                const img = this.previousElementSibling; // La imagen está justo antes del botón en el DOM
+                const filename = img.getAttribute('data-filename');
+                const link = document.createElement('a');
+                link.href = img.src;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        });   
+    </script> 
+</body>
+</html>
